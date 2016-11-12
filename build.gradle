@@ -119,6 +119,9 @@ configure(subprojects - project(':ui:linuxLauncher')) {
             ignoreFailures = true
         }
     }
+    test {
+       ignoreFailures true
+    }
 
     tasks.withType(Checkstyle) {
         // Remove checkstyle dependencies on compilation
