@@ -70,6 +70,7 @@ public class CascadeClassifierOperation implements Operation {
     minSizeSocket = isf.create(minSizeHint);
     maxSizeSocket = isf.create(maxSizeHint);
     output = osf.create(outputHint);
+    perform();
   }
 
   @Override

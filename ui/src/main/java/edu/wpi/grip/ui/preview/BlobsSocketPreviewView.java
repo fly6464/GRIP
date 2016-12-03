@@ -43,8 +43,9 @@ public class BlobsSocketPreviewView extends SocketPreviewView<BlobsReport> {
   @SuppressWarnings("PMD.ImmutableField")
   @SuppressFBWarnings(value = "IS2_INCONSISTENT_SYNC",
       justification = "Do not need to synchronize inside of a constructor")
-  private boolean showInputImage = false;
-
+  public boolean showInputImage = true;
+// mutant added by Mingfei
+  //public boolean showInputImage= false;
   /**
    * @param socket An output socket to preview.
    */

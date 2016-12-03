@@ -171,5 +171,12 @@ public class MainWindowTest extends ApplicationTest {
     assertEquals("Step added was not added in the right place in the pipeline",
         AdditionOperation.DESCRIPTION, pipeline.getSteps().get(1).getOperationDescription());
   }
+  @Test
+  public void testExploterbyMingfei() {
+    Exporter exporter = new Exporter(pipeline.getSteps(), null, null, true);
+    exporter.getNonExportableSteps();
+//      exporter.run();
+
+  }
 
 }
