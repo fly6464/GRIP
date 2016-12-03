@@ -10,6 +10,8 @@ import edu.wpi.grip.core.events.OperationAddedEvent;
 import edu.wpi.grip.core.operations.network.MockGripNetworkModule;
 import edu.wpi.grip.core.sockets.InputSocket;
 import edu.wpi.grip.core.sockets.OutputSocket;
+import edu.wpi.grip.ui.codegeneration.Exporter;
+import edu.wpi.grip.ui.codegeneration.Language;
 import edu.wpi.grip.ui.util.DPIUtility;
 import edu.wpi.grip.ui.util.StyleClassNameUtility;
 import edu.wpi.grip.util.GripCoreTestModule;
@@ -86,7 +88,6 @@ public class MainWindowTest extends ApplicationTest {
   public void testShouldCreateNewOperationInPipelineView() {
     // Given:
     clickOn(addOperation.getDescription().name());
-
     WaitForAsyncUtils.waitForFxEvents();
 
     // Then:
@@ -170,6 +171,5 @@ public class MainWindowTest extends ApplicationTest {
     assertEquals("Step added was not added in the right place in the pipeline",
         AdditionOperation.DESCRIPTION, pipeline.getSteps().get(1).getOperationDescription());
   }
-
 
 }

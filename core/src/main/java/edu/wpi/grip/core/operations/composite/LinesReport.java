@@ -11,7 +11,7 @@ import java.util.List;
 import static org.bytedeco.javacpp.opencv_core.Mat;
 import static org.bytedeco.javacpp.opencv_imgproc.LineSegmentDetector;
 import static org.bytedeco.javacpp.opencv_imgproc.createLineSegmentDetector;
-
+import org.bytedeco.javacpp.opencv_core;
 /**
  * This class contains the results of a line detection algorithm.  It has an input matrix (the image
  * supplied to the algorithm), and and output matrix, which contains every line found in its rows.
@@ -53,6 +53,8 @@ public class LinesReport implements Publishable {
    */
   public Mat getInput() {
     return this.input;
+    // below is a mutant added by Mingfei
+   // return new Mat(2, this.input.size(), opencv_core.CV_8U, opencv_core.Scalar.all(2));
   }
 
   public List<Line> getLines() {

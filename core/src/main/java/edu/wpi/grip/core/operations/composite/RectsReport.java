@@ -8,7 +8,7 @@ import com.google.common.collect.ImmutableList;
 
 import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_core.Rect;
-
+import org.bytedeco.javacpp.opencv_core;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +32,10 @@ public class RectsReport implements Publishable {
    * Gets the image the rectangles are for.
    */
   public Mat getImage() {
+
     return image;
+    // below is a mutant added by Mingfei
+   // return new Mat(2, this.image.size(), opencv_core.CV_8U, opencv_core.Scalar.all(2));
   }
 
   /**

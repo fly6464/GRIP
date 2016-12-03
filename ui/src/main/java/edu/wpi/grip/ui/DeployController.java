@@ -145,6 +145,7 @@ public class DeployController {
     // persistent project
     // settings, so they don't get reset the next time the project is opened to the settings are
     // edited.
+    /*
     final ProjectSettings settings = settingsProvider.getProjectSettings();
     settings.setDeployAddress(address.getText());
     settings.setDeployUser(user.getText());
@@ -152,10 +153,12 @@ public class DeployController {
     settings.setDeployJvmOptions(jvmArgs.getText());
     settings.setDeployDir(deployDir.getText());
     eventBus.post(new ProjectSettingsChangedEvent(settings));
+    */
   }
 
   @FXML
   protected void onDeploy() {
+    /*
     saveSettings();
 
     deploying.setValue(true);
@@ -165,6 +168,7 @@ public class DeployController {
     deployThread = Optional.of(new Thread(this::deploy, "Deploy"));
     deployThread.get().setDaemon(true);
     deployThread.get().start();
+    */
   }
 
   @FXML
@@ -180,7 +184,9 @@ public class DeployController {
    * deployment.
    */
   @SuppressWarnings("PMD.AvoidUsingOctalValues")
+
   private void deploy() {
+     /*
     setStatusAsync("Connecting to " + address.getText(), false);
 
     try (SSHClient ssh = new SSHClient()) {
@@ -289,6 +295,7 @@ public class DeployController {
         Platform.runLater(() -> deploying.setValue(false));
       }
     }
+    */
   }
 
   /**

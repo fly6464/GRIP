@@ -5,6 +5,7 @@ import edu.wpi.grip.core.operations.network.Publishable;
 import edu.wpi.grip.core.sockets.NoSocketTypeLabel;
 
 import com.google.common.base.MoreObjects;
+import org.bytedeco.javacpp.opencv_core;
 
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +41,8 @@ public class BlobsReport implements Publishable {
    */
   public Mat getInput() {
     return this.input;
+    // below is a mutant added by Mingfei
+    //return new Mat(2, this.input.size(), opencv_core.CV_8U, opencv_core.Scalar.all(2));
   }
 
   @PublishValue(key = "x", weight = 0)

@@ -1,5 +1,6 @@
 package edu.wpi.grip.core;
 
+import edu.wpi.grip.core.operations.network.PublishValue;
 import edu.wpi.grip.core.sockets.InputSocket;
 import edu.wpi.grip.core.sockets.OutputSocket;
 import edu.wpi.grip.core.sockets.SocketHint;
@@ -43,12 +44,19 @@ public class AdditionOperation implements Operation {
         c
     );
   }
-
   @Override
   public void perform() {
     double valA = a.getValue().get().doubleValue();
     double valB = b.getValue().get().doubleValue();
     double valC = valA + valB;
     c.setValue(valC);
+  }
+  public int checkPerform(){
+    if(this.c.getValue().get().doubleValue()==this.a.getValue().get().doubleValue()+this.b.getValue().get().doubleValue()){
+      return 1;
+    }
+    else {
+      return 0;
+    }
   }
 }

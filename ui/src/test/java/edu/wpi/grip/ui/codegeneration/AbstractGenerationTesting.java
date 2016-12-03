@@ -63,6 +63,7 @@ public class AbstractGenerationTesting {
   protected PipelineGenerator gen;
 
   static {
+   // System.out.print(Core.NATIVE_LIBRARY_NAME);
     System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
   }
 
