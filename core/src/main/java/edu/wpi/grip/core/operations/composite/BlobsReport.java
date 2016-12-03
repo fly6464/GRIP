@@ -82,7 +82,9 @@ public class BlobsReport implements Publishable {
     public final double y;
     public final double size;
 
-    protected Blob(double x, double y, double size) {
+    // Blob(double x, double y, double size) {
+    //changed by Mingfei
+    public Blob(double x, double y, double size) {
       this.x = x;
       this.y = y;
       this.size = size;
@@ -95,6 +97,12 @@ public class BlobsReport implements Publishable {
           .add("y", y)
           .add("size", size)
           .toString();
+      //mutant added by Mingfei
+    //  return MoreObjects.toStringHelper(this)
+      //        .add("x", 1.0)
+        //      .add("y", 1.0)
+          //    .add("size", 1.0)
+            //  .toString();
     }
   }
 

@@ -121,7 +121,9 @@ public class LinesReport implements Publishable {
     public final double x2;
     public final double y2;
 
-    Line(double x1, double y1, double x2, double y2) {
+    //Line(double x1, double y1, double x2, double y2) {
+    //change by Mingfei
+   public Line(double x1, double y1, double x2, double y2) {
       this.x1 = x1;
       this.y1 = y1;
       this.x2 = x2;
@@ -129,11 +131,17 @@ public class LinesReport implements Publishable {
     }
 
     public double lengthSquared() {
+
       return Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2);
+      //mutant add by Mingfei
+     // return 1.0;
     }
 
     public double length() {
+
       return Math.sqrt(lengthSquared());
+      //mutant add by Mingfei
+      //return 1.0
     }
 
     public double angle() {

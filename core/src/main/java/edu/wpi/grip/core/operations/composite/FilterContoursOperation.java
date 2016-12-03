@@ -109,6 +109,9 @@ public class FilterContoursOperation implements Operation {
     this.maxRatioSocket = inputSocketFactory.create(maxRatioHint);
 
     this.outputSocket = outputSocketFactory.create(contoursHint);
+    //added by Mingfei
+    perform();
+    //add end
   }
 
   @Override

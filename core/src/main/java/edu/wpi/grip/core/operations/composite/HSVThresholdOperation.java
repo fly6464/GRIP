@@ -10,6 +10,7 @@ import edu.wpi.grip.core.util.Icon;
 
 import com.google.common.collect.ImmutableList;
 
+import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_core.Scalar;
 
@@ -62,6 +63,8 @@ public class HSVThresholdOperation extends ThresholdOperation {
     this.valueSocket = inputSocketFactory.create(valueHint);
 
     this.outputSocket = outputSocketFactory.create(outputHint);
+    //add by Mingfei
+    perform();
   }
 
   @Override
@@ -84,7 +87,11 @@ public class HSVThresholdOperation extends ThresholdOperation {
 
   @Override
   public void perform() {
-    final Mat input = inputSocket.getValue().get();
+   // final Mat input = inputSocket.getValue().get();
+    //changed by Mingfei
+    int[] sz = {256, 256};
+    final Mat input= new Mat(2, sz, opencv_core.CV_8UC3, opencv_core.Scalar.all(1));
+    //change end
 
     if (input.channels() != 3) {
       throw new IllegalArgumentException("HSV Threshold needs a 3-channel input");

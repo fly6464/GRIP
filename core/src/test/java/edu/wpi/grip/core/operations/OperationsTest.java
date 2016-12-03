@@ -98,6 +98,12 @@ public class OperationsTest {
 
   }
   @Test
+  public void testBlobbyMingfei()
+  {
+    BlobsReport.Blob blob=new BlobsReport.Blob(3.0,2.0,4.0);
+    assertTrue(blob.toString().contains("3.0"));
+  }
+  @Test
   public void testLinesReportbyMingfei()
   {
     int[] sz = {256, 256};
@@ -115,6 +121,16 @@ public class OperationsTest {
     linesReport.getY2();
     Mat out=linesReport.getInput();
     assertTrue(isMatEqual( out, mat));
+  }
+  @Test
+  public void testLinebyMingfei()
+  {
+   LinesReport.Line line=new LinesReport.Line(2.0,2.0,5.0,6.0);
+    double a=line.angle();
+    double l=line.length();
+    double ls=line.lengthSquared();
+    assertEquals(ls,25.0,0.01);
+    assertEquals(l,5.0,0.01);
   }
   @Test
   public void testRectsReportbyMingfei()
