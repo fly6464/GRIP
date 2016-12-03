@@ -90,9 +90,9 @@ public class OperationsTest {
     blobsReport.getX();
     blobsReport.getY();
     blobsReport.getBlobs();
-    Mat out=blobsReport.getInput();
     blobsReport.getSize();
     blobsReport.toString();
+    Mat out=blobsReport.getInput();
     assertTrue(isMatEqual( out, mat));
 
   }
@@ -105,7 +105,6 @@ public class OperationsTest {
     LineSegmentDetector lsd = new LineSegmentDetector();
     LinesReport linesReport=new LinesReport(lsd,mat,lines);
     linesReport.toString();
-    Mat out=linesReport.getInput();
     linesReport.getAngle();
     linesReport.getLength();
     linesReport.getLines();
@@ -113,6 +112,7 @@ public class OperationsTest {
     linesReport.getX2();
     linesReport.getY1();
     linesReport.getY2();
+    Mat out=linesReport.getInput();
     assertTrue(isMatEqual( out, mat));
   }
   @Test
@@ -122,12 +122,12 @@ public class OperationsTest {
     Mat mat= new Mat(2, sz, opencv_core.CV_8U, opencv_core.Scalar.all(1));
     List<opencv_core.Rect> rectangles=new ArrayList<>();
     RectsReport rectsReport=new RectsReport(mat,rectangles);
-    Mat out=rectsReport.getImage();
     rectsReport.getRectangles();
     rectsReport.height();
     rectsReport.topLeftX();
     rectsReport.topLeftY();
     rectsReport.width();
+    Mat out=rectsReport.getImage();
     assertTrue(isMatEqual( out, mat));
   }
 

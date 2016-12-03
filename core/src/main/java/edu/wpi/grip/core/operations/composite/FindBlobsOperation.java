@@ -9,6 +9,8 @@ import edu.wpi.grip.core.sockets.SocketHints;
 import edu.wpi.grip.core.util.Icon;
 
 import com.google.common.collect.ImmutableList;
+import org.bytedeco.javacpp.opencv_core;
+import org.bytedeco.javacpp.opencv_imgproc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,6 +62,9 @@ public class FindBlobsOperation implements Operation {
     this.colorSocket = inputSocketFactory.create(colorHint);
 
     this.outputSocket = outputSocketFactory.create(blobsHint);
+    //added by Mingfei
+    perform();
+    //add end
   }
 
   @Override
@@ -82,7 +87,11 @@ public class FindBlobsOperation implements Operation {
   @Override
   @SuppressWarnings("unchecked")
   public void perform() {
-    final Mat input = inputSocket.getValue().get();
+  //  final Mat input = inputSocket.getValue().get();
+    //changed by Mingfei
+    int[] sz = {256, 256};
+    final Mat input= new Mat(2, sz, opencv_core.CV_8U, opencv_core.Scalar.all(1));
+    //change end
     final Number minArea = minAreaSocket.getValue().get();
     final List<Number> circularity = circularitySocket.getValue().get();
     final Boolean darkBlobs = colorSocket.getValue().get();

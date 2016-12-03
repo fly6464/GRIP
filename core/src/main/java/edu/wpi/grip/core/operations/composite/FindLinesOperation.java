@@ -11,6 +11,7 @@ import edu.wpi.grip.core.util.Icon;
 import com.google.common.collect.ImmutableList;
 
 import org.bytedeco.javacpp.indexer.FloatIndexer;
+import org.bytedeco.javacpp.opencv_core;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +47,9 @@ public class FindLinesOperation implements Operation {
       outputSocketFactory) {
     this.inputSocket = inputSocketFactory.create(inputHint);
     this.linesReportSocket = outputSocketFactory.create(linesHint);
+    //added by Mingfei
+    perform();
+    //add end
   }
 
   @Override
@@ -65,9 +69,12 @@ public class FindLinesOperation implements Operation {
   @Override
   @SuppressWarnings("unchecked")
   public void perform() {
-    final Mat input = inputSocket.getValue().get();
+    //final Mat input = inputSocket.getValue().get();
+    //changed by Mingfei
+    int[] sz = {256, 256};
+    final Mat input= new Mat(2, sz, opencv_core.CV_8U, opencv_core.Scalar.all(1));
+    //change end
     final LineSegmentDetector lsd = linesReportSocket.getValue().get().getLineSegmentDetector();
-
     final Mat lines = new Mat();
     if (input.channels() == 1) {
       lsd.detect(input, lines);
