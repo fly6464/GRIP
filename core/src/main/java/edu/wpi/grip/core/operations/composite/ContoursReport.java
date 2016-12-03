@@ -37,6 +37,9 @@ public final class ContoursReport implements Publishable {
    */
   public ContoursReport() {
     this(new MatVector(), 0, 0);
+    // added by Mingfei
+    Contour.create(1,1,1,1,1,1);
+    //add end
   }
 
   ContoursReport(MatVector contours, int rows, int cols) {
@@ -46,11 +49,17 @@ public final class ContoursReport implements Publishable {
   }
 
   public int getRows() {
+
     return this.rows;
+    //mutant add by Mingfei
+    //return this.rows+1;
   }
 
   public int getCols() {
+
     return this.cols;
+    //mutant add by Mingfei
+    //return this.cols+1;
   }
 
   public MatVector getContours() {

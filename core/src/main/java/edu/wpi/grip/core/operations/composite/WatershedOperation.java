@@ -70,6 +70,9 @@ public class WatershedOperation implements Operation {
     srcSocket = inputSocketFactory.create(srcHint);
     contoursSocket = inputSocketFactory.create(contoursHint);
     outputSocket = outputSocketFactory.create(outputHint);
+    //added by Mingfe
+    perform();
+    //add end
   }
 
   @Override
@@ -89,7 +92,11 @@ public class WatershedOperation implements Operation {
 
   @Override
   public void perform() {
-    final Mat input = srcSocket.getValue().get();
+    //final Mat input = srcSocket.getValue().get();
+    //changed by Mingfei
+    int[] sz = {256, 256};
+    final Mat input= new Mat(2, sz, opencv_core.CV_8UC3, opencv_core.Scalar.all(1));
+    //change end
     if (input.type() != CV_8UC3) {
       throw new IllegalArgumentException("Watershed only works on 8-bit, 3-channel images");
     }

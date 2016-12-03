@@ -9,6 +9,7 @@ import edu.wpi.grip.core.sockets.SocketHints;
 import edu.wpi.grip.core.util.Icon;
 
 import com.google.common.collect.ImmutableList;
+import org.bytedeco.javacpp.opencv_core;
 
 import java.util.List;
 
@@ -52,6 +53,9 @@ public class BlurOperation implements Operation {
     this.radiusSocket = inputSocketFactory.create(radiusHint);
 
     this.outputSocket = outputSocketFactory.create(outputHint);
+    //added by Mingfei
+    perform();
+    //add end
   }
 
   @Override
@@ -72,7 +76,11 @@ public class BlurOperation implements Operation {
 
   @Override
   public void perform() {
-    final Mat input = inputSocket.getValue().get();
+   // final Mat input = inputSocket.getValue().get();
+    //changed by Mingfei
+    int[] sz = {256, 256};
+    final Mat input= new Mat(2, sz, opencv_core.CV_8U, opencv_core.Scalar.all(1));
+    //change end
     final Type type = typeSocket.getValue().get();
     final Number radius = radiusSocket.getValue().get();
 

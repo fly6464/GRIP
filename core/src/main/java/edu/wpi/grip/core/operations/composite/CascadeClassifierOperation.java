@@ -10,6 +10,7 @@ import edu.wpi.grip.core.util.Icon;
 
 import com.google.common.collect.ImmutableList;
 
+import org.bytedeco.javacpp.opencv_core;
 import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_core.Rect;
 import org.bytedeco.javacpp.opencv_core.RectVector;

@@ -24,6 +24,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import static org.bytedeco.javacpp.opencv_core.Mat;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.bytedeco.javacpp.opencv_imgproc.LineSegmentDetector;
 @RunWith(Parameterized.class)
@@ -129,6 +130,24 @@ public class OperationsTest {
     rectsReport.width();
     Mat out=rectsReport.getImage();
     assertTrue(isMatEqual( out, mat));
+  }
+  @Test
+  public void testContourssReportbyMingfei()
+  {
+    ContoursReport contoursReport=new ContoursReport();
+    contoursReport.getArea();
+    contoursReport.getCenterX();
+    contoursReport.getCenterY();
+    contoursReport.getContours();
+    contoursReport.getHeights();
+    contoursReport.getProcessedContours();
+    contoursReport.getSolidity();
+    contoursReport.getWidth();
+    int rows=contoursReport.getRows();
+    int cols=contoursReport.getCols();
+    assertEquals(rows,0);
+    assertEquals(cols,0);
+
   }
 
 }
