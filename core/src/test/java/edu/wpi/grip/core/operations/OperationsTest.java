@@ -93,6 +93,8 @@ public class OperationsTest {
     blobsReport.getBlobs();
     blobsReport.getSize();
     blobsReport.toString();
+    blobsReport.equals(null);
+    blobsReport.hashCode();
     Mat out=blobsReport.getInput();
     assertTrue(isMatEqual( out, mat));
 

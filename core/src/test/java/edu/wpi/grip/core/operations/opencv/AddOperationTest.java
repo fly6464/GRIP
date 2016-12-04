@@ -13,9 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-
 import static org.junit.Assert.assertTrue;
-
 public class AddOperationTest {
 
   EventBus eventBus;
@@ -71,4 +69,6 @@ public class AddOperationTest {
     Mat expectedResult = new Mat(2, sz, opencv_core.CV_8U, Scalar.all(3));
     assertTrue(isMatEqual((Mat) c.getValue().get(), expectedResult));
   }
+
+
 }
