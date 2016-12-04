@@ -190,6 +190,7 @@ configure(subprojects - project(':ui:linuxLauncher')) {
             xml.enabled = true
             html.enabled = true
         }
+        executionData= "**/ui/codegeneration/**"
     }
 
     tasks.withType(Javadoc) {
