@@ -16,7 +16,9 @@ public class TextAreaSocketPreviewView<T> extends SocketPreviewView<T> {
 
   private final TextArea text;
   private final GripPlatform platform;
-
+  public boolean showInputImage = true;
+// mutant added by Mingfei
+  //public boolean showInputImage= false;
   /**
    * @param socket An output socket to preview.
    */
@@ -27,7 +29,7 @@ public class TextAreaSocketPreviewView<T> extends SocketPreviewView<T> {
     this.setStyle("-fx-pref-width: 20em;");
 
     this.text = new TextArea(socket.getValue().orElse((T) "").toString());
-    text.setEditable(false);
+    text.setEditable(this.showInputImage);
 
     this.setContent(text);
   }

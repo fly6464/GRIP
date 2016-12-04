@@ -42,7 +42,9 @@ public final class ContoursSocketPreviewView extends SocketPreviewView<ContoursR
   private final CheckBox colorContours;
   private final Mat tmp = new Mat();
   private final GripPlatform platform;
-
+  public boolean showInputImage = true;
+// mutant added by Mingfei
+  //public boolean showInputImage= false;
   /**
    * @param socket An output socket to preview.
    */
@@ -50,7 +52,7 @@ public final class ContoursSocketPreviewView extends SocketPreviewView<ContoursR
     super(socket);
     this.platform = platform;
     this.colorContours = new CheckBox("Color Contours");
-    this.colorContours.setSelected(false);
+    this.colorContours.setSelected(showInputImage);
 
     this.setContent(new VBox(this.imageView, this.infoLabel, this.colorContours));
 

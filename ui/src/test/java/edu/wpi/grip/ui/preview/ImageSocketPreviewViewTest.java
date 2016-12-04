@@ -55,7 +55,7 @@ public class ImageSocketPreviewViewTest extends ApplicationTest {
 
   @Test
   @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-  public void tesBlobsView() {
+  public void testIfImageRenders() {
     WaitForAsyncUtils.waitForFxEvents();
     verifyThat(identifier, NodeMatchers.isVisible());
   }

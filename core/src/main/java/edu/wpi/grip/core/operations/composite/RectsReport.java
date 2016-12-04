@@ -10,6 +10,7 @@ import org.bytedeco.javacpp.opencv_core.Mat;
 import org.bytedeco.javacpp.opencv_core.Rect;
 import org.bytedeco.javacpp.opencv_core;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,6 +24,10 @@ public class RectsReport implements Publishable {
 
   public static final RectsReport NIL = new RectsReport(new Mat(), new ArrayList<>());
 
+  //added by Mingfei to be called in rectangleSocketPreviewbymingfeitest
+  public RectsReport() {
+    this(new Mat(), Collections.emptyList());
+  }
   public RectsReport(Mat image, List<Rect> rectangles) {
     this.image = image;
     this.rectangles = ImmutableList.copyOf(rectangles);

@@ -42,7 +42,9 @@ public class RectangleSocketPreviewView extends SocketPreviewView<RectsReport> {
   @SuppressWarnings("PMD.ImmutableField")
   @SuppressFBWarnings(value = "IS2_INCONSISTENT_SYNC",
                       justification = "Do not need to synchronize inside of a constructor")
-  private boolean showInputImage = false;
+  public boolean showInputImage = true;
+  //mutant added by Mingfei
+  //public boolean showInputImage=false;
 
   protected RectangleSocketPreviewView(GripPlatform platform, OutputSocket<RectsReport> socket) {
     super(socket);

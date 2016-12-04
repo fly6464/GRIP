@@ -5,6 +5,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.util.Modules;
 import edu.wpi.grip.core.events.RenderEvent;
+import edu.wpi.grip.core.operations.composite.ContoursReport;
 import edu.wpi.grip.core.operations.network.MockGripNetworkModule;
 import edu.wpi.grip.core.sockets.OutputSocket;
 import edu.wpi.grip.core.sockets.SocketHint;
@@ -30,8 +31,8 @@ import static org.junit.Assert.assertArrayEquals;
 /**
  * Created by Mingfei on 12/3/2016.
  */
-public class BlobsSocketPreviewViewByMingfeiTest extends ApplicationTest {
-    private static final String identifier = "blob";
+public class ContoursSocketPreviewViewByMingfeiTest extends ApplicationTest {
+    private static final String identifier = "contour";
     private GripCoreTestModule testModule;
 
     @Override
@@ -41,18 +42,18 @@ public class BlobsSocketPreviewViewByMingfeiTest extends ApplicationTest {
 
         final Injector injector = Guice.createInjector(Modules.override(testModule)
                 .with(new GripUiModule(), new MockGripNetworkModule()));
-        final BlobsSocketPreviewView blobsSocketPreviewView =
-                new BlobsSocketPreviewView(new MockGripPlatform(new EventBus()),
+        final ContoursSocketPreviewView contoursSocketPreviewView =
+                new ContoursSocketPreviewView(new MockGripPlatform(new EventBus()),
                         injector.getInstance(OutputSocket.Factory.class)
-                                .create(new SocketHint.Builder<>(BlobsReport.class)
+                                .create(new SocketHint.Builder<>(ContoursReport.class)
                                         .identifier(identifier)
-                                        .initialValueSupplier(BlobsReport::new)
+                                        .initialValueSupplier(ContoursReport::new)
                                         .build()));
-        final Scene scene = new Scene(blobsSocketPreviewView);
+        final Scene scene = new Scene(contoursSocketPreviewView);
         stage.setScene(scene);
         stage.show();
-        blobsSocketPreviewView.onRender(new RenderEvent());
-        assertTrue(blobsSocketPreviewView.showInputImage);
+        contoursSocketPreviewView.onRender(new RenderEvent());
+        assertTrue(contoursSocketPreviewView.showInputImage);
     }
 
     @After
@@ -62,7 +63,7 @@ public class BlobsSocketPreviewViewByMingfeiTest extends ApplicationTest {
 
     @Test
     @SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
-    public void testBlobView() {
+    public void testContourView() {
         WaitForAsyncUtils.waitForFxEvents();
         verifyThat(identifier, NodeMatchers.isVisible());
     }
