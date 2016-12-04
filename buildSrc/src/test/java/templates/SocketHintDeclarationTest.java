@@ -1,5 +1,6 @@
 package templates;
 
+import edu.wpi.gripgenerator.templates.Enumeration;
 import edu.wpi.gripgenerator.templates.SocketHintDeclaration;
 
 import org.junit.Before;
@@ -22,9 +23,8 @@ public class SocketHintDeclarationTest {
   @Test
   @Ignore("No longer accurate")
   public void testGetDeclaration() {
-    final String outputString = "private final SocketHint<Mat> src1OutputHint = new " +
-        "SocketHint<Mat>(\"src1\", Mat.class), src2OutputHint = new SocketHint<Mat>(\"src2\", Mat" +
-        ".class);";
+    final String outputString = "private final SocketHint<Mat> src1OutputHint = new SocketHint.Builder(Mat.class).identifier(\"src1\").build(), src2OutputHint = new SocketHint.Builder(Mat.class).identifier(\"src2\").build();";
+   // System.out.print(testDeclaration.getDeclaration().toString());
     assertEquals(outputString, testDeclaration.getDeclaration().toString());
   }
 }
