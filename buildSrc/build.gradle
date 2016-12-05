@@ -1,6 +1,16 @@
 apply plugin: 'groovy'
 apply plugin: 'project-report'
+apply plugin: "jacoco"
 
+jacoco {
+    toolVersion = "0.7.5.201505241946"
+}
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}
 repositories {
     mavenCentral()
 }
